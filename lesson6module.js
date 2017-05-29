@@ -9,11 +9,10 @@ module.exports = function (file, target, callback ) {
         if(err) { return callback(err, []); }
 
         for (var index in list) {
-       // Print filename if file extension matches target
-        if(path.extname(list[index]) === target){
-            filteredList.push(list[index]);
+            if(path.extname(list[index]) === '.' + target){
+                filteredList.push(list[index]);
+            }
         }
-    }
     callback(null, filteredList);
 })
 };
